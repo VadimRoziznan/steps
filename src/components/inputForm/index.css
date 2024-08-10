@@ -1,0 +1,45 @@
+.form {
+  display: flex;
+  width: 600px;
+  height: 100px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date-container,
+.distance-container {
+  display: flex;
+  width: 200px;
+  height: 100%;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+
+.button-container {
+  display: flex;
+  width: 180px;
+  height: 100%;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+
+input {
+  width: 180px;
+  height: 45px;
+  border-radius: 10px;
+}
+
+button {
+  width: 100px;
+  height: 52px;
+  border-radius: 10px;
+}
+
+label {
+  width: 180px;
+  margin: 0 0 15px 0;
+}
