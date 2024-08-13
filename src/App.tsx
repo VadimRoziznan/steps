@@ -5,7 +5,7 @@ import { DataTable } from "./components/dataTable";
 
 function App() {
 
-  const [formData, setFormData] = useState({ date: '', distance: '' });
+  const [formData, setFormData] = useState({ date: "", distance: "" });
 
   const handleFormSubmit = (date: string, distance: string) => {
     setFormData({ date, distance });

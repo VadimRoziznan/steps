@@ -1,39 +1,41 @@
-import { useState, useEffect } from 'react';
-import "./index.css"
-
+import { useState, useEffect } from "react";
+import "./index.css";
 
 interface DataTableProps {
   date: string;
   distance: string;
 }
 
+interface DataItem {
+  date: string;
+  distance: string;
+}
+
 export const DataTable = ({ date, distance }: DataTableProps) => {
-  const [data, setData] = useState<DataTableProps[]>([]);
-  let coincidence: boolean = false;
+  const [data, setData] = useState<DataItem[]>([]);
 
   useEffect(() => {
     if (date && distance) {
-      const newData = data.map(item => {
-        if (item.date === date) {
-          coincidence = true;
-          return { ...item, distance: String(+item.distance + +distance) };
-        }
-        return item;
-    });
-    if (coincidence) {
-      setData(newData);
-    } else {
-      const newElement = { date, distance };
-      setData([...newData, newElement]);
+      const existingItem = data.find(item => item.date === date);
+      if (existingItem) {
+        const newData = data.map(item => {
+          if (item.date === date) {
+            return { ...item, distance: String(+item.distance + +distance) };
+          }
+          return item;
+        });
+        setData(newData);
+      } else {
+        const newElement = { date, distance };
+        setData([...data, newElement]);
+      }
     }
-    
-  }
-}, [date, distance]);
+  }, [date, distance]);
 
-const handleDelete = (index: number) => {
-  setData(data.filter((item, i) => i !== index));
-}
-  
+  const handleDelete = (index: number) => {
+    setData(data.filter((item, i) => i !== index));
+  };
+
   return (
     <div className='container'>
       <div className="headers">
@@ -63,5 +65,5 @@ const handleDelete = (index: number) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};

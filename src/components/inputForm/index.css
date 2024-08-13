@@ -43,3 +43,31 @@ label {
   width: 180px;
   margin: 0 0 15px 0;
 }
+
+.error-message {
+  width: 500px;
+  height: 32px;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  right: 0;
+  background-color: red;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  animation: fadeOut 7s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.form {
+  position: relative;
+}
